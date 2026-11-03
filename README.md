@@ -1,7 +1,7 @@
 ## Fundamentos de Programación
 # Ejercicio de laboratorio: Nombres
 ### Autor: José A. Troyano
-### Revisora: Toñi Reina
+### Revisora: Toñi Reina, Fermín Cruz
 ---
 
 En este proyecto trabajaremos con datos correspondientes a los nombres de las personas nacidas en España desde 2002 a 2024. Los datos están tomados del [Instituto Nacional de Estadística](https://www.ine.es/) , donde se pueden encontrar muchos datos interesantes principalmente sobre la demografía, economía y sociedad españolas. Representaremos la información de entrada mediante listas de tuplas, y a partir de esta estructura implementaremos una serie de funciones que nos permitirán realizar varios tipos de consultas y generar visualizaciones.
