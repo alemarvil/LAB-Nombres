@@ -1,5 +1,5 @@
 from typing import List
-from collections import namedtuple
+from collections import namedtuple,defaultdict
 import csv
 
 FrecuenciaNombre = namedtuple('FrecuenciaNombre', 'año,nombre,frecuencia,genero')
@@ -68,6 +68,32 @@ def calcular_nombre_mas_frecuente_año_genero(nombres: List[FrecuenciaNombre],a�
     f = [n for n in nombres if n.año == año and n.genero == g]
     o = sorted(f, key=lambda n:n.frecuencia, reverse =True)
     return o[0].nombre
+
+
+def calcular_año_mas_frecuencia_nombre(nombres: List[FrecuenciaNombre],nombre: str)->int:
+    nombreBuscado = nombre.strip().upper()
+    f = [n for n in nombres if n.nombre.strip().upper() == nombreBuscado] # para que escriba el nombre como lo escriba , no de error de que no encuentra
+    o = max(f, key = lambda x:x.frecuencia )
+    return o.año
+
+def calcular_año_frecuencia_por_nombre(nombres: List[FrecuenciaNombre],g: str)->{str,(int,int)}:
+    f = {n.nombre:(n.año,n.frecuencia) for n in nombres if n.genero == g}
+    return f
+
+def calcular_nombres_mas_frecuentes(nombres: List[FrecuenciaNombre],g: str,dec: int,n : int = 5)->List[str]:
+   añoP= 2000 + dec
+   f = defaultdict(int)
+   for a in nombres:
+        if a.genero == g and añoP <= a.año < añoP + 10:
+            f[a.nombre] += a.frecuencia
+   o = sorted(f.items(),key=lambda x:x[1] , reverse=True)[:n]
+   l = [b[0] for b in o]
+   return l
+
+
+
+
+    
 
 
         
